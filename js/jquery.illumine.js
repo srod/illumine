@@ -12,6 +12,7 @@
  * 
  * Author: Rodolphe Stoclin
  * E-mail: rodolphe@2clics.net
+ * Web: http://www.2clics.net
  */
  
 (function($){
