@@ -7,7 +7,7 @@
  * 
  * Developed with jQuery version: 1.4.3
  * 
- * Version: 1.0.0
+ * Version: 0.1
  * Name: illumine
  * 
  * Author: Rodolphe Stoclin
