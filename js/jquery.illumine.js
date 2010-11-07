@@ -1,4 +1,4 @@
-﻿/* Illumine - jQuery plugin
+/* Illumine - jQuery plugin
  * 
  * This plugin is used to highlight elements on a web page.
  * 
@@ -16,33 +16,31 @@
  */
  
 (function($){
-	$.fn.extend({
-		illumine: function(options) {
-            var defaults = {
-            	opacity: 0.2,
-                animateTimer: 500
-            };
+	$.fn.illumine = function(options){
+        var defaults = {
+        	opacity: 0.2,
+            animateTimer: 500
+        };
+        
+        settings = $.extend(defaults, options);
+        
+        var elements = this;
+        var timer;
+        
+        return elements.each(function(){
+            var elt = $(this);
             
-            settings = $.extend(defaults, options);
-            
-            var elements = this;
-            var timer;
-            
-            return elements.each(function(){
-                var elt = $(this);
-                
-                elt.hover(function(){
-                	clearTimeout(timer);
-                	$(elements).clearQueue();
-                	
-                	elt.animate({ opacity: 1 }, settings.animateTimer);
-                	$(elements).not(elt).animate({ opacity: settings.opacity }, settings.animateTimer);
-                }, function(){
-                	timer = setTimeout(function(){
-                		$(elements).animate({ opacity: 1 }, settings.animateTimer);
-                	}, settings.animateTimer);
-                });
+            elt.hover(function(){
+            	clearTimeout(timer);
+            	$(elements).clearQueue();
+            	
+            	elt.animate({ opacity: 1 }, settings.animateTimer);
+            	$(elements).not(elt).animate({ opacity: settings.opacity }, settings.animateTimer);
+            }, function(){
+            	timer = setTimeout(function(){
+            		$(elements).animate({ opacity: 1 }, settings.animateTimer);
+            	}, settings.animateTimer);
             });
-		}
-	});
+        });
+	};
 })(jQuery);
