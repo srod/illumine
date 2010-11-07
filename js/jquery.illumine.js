@@ -28,17 +28,17 @@
             var timer;
             
             return elements.each(function(){
-                var elt = jQuery(this);
+                var elt = $(this);
                 
                 elt.hover(function(){
                 	clearTimeout(timer);
-                	jQuery(elements).clearQueue();
+                	$(elements).clearQueue();
                 	
                 	elt.animate({ opacity: 1 }, settings.animateTimer);
-                	jQuery(elements).not(elt).animate({ opacity: settings.opacity }, settings.animateTimer);
+                	$(elements).not(elt).animate({ opacity: settings.opacity }, settings.animateTimer);
                 }, function(){
                 	timer = setTimeout(function(){
-                		jQuery(elements).animate({ opacity: 1 }, settings.animateTimer);
+                		$(elements).animate({ opacity: 1 }, settings.animateTimer);
                 	}, settings.animateTimer);
                 });
             });
